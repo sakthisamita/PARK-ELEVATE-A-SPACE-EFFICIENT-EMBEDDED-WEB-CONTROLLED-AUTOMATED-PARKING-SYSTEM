@@ -1,0 +1,742 @@
+{
+  "carousel_position": 0,
+  "slots": {
+    "A": {
+      "index": 0,
+      "status": "empty",
+      "user": null,
+      "entry_time": null,
+      "vehicle_number": null
+    },
+    "B": {
+      "index": 1,
+      "status": "empty",
+      "user": null,
+      "entry_time": null,
+      "vehicle_number": null
+    },
+    "C": {
+      "index": 2,
+      "status": "occupied",
+      "user": "sanjit",
+      "entry_time": "2026-05-16T11:27:39.835809",
+      "vehicle_number": "TN67YYHH"
+    },
+    "D": {
+      "index": 3,
+      "status": "occupied",
+      "user": "sanjay",
+      "entry_time": "2026-05-16T11:26:47.312731",
+      "vehicle_number": "TN08EE1234"
+    }
+  },
+  "users": {
+    "sakthi": {
+      "password": "sakthi123",
+      "name": "Sakthi Samita",
+      "assigned_slot": null
+    },
+    "sanjay": {
+      "password": "sanjay123",
+      "name": "Sanjay Vasudhevan",
+      "assigned_slot": "D"
+    },
+    "rohith": {
+      "password": "rohith123",
+      "name": "Rohith P",
+      "assigned_slot": null
+    },
+    "sabarish": {
+      "password": "sabarish123",
+      "name": "Sabarish Raja",
+      "assigned_slot": null
+    },
+    "sanjit": {
+      "password": "sanjit123",
+      "name": "Sanjit M",
+      "assigned_slot": "C"
+    },
+    "sanjeevi": {
+      "password": "sanjeevi123",
+      "name": "Sanjeevi R",
+      "assigned_slot": null
+    }
+  },
+  "transaction_log": [
+    {
+      "username": "alice",
+      "slot": "A",
+      "vehicle_number": "TN09CD2345",
+      "entry_time": "2026-04-08T23:01:06.890266",
+      "exit_time": "2026-04-08T23:02:44.308550",
+      "duration": "00h 01m 37s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "TN06SS2606",
+      "entry_time": "2026-04-08T23:15:19.809164",
+      "exit_time": "2026-04-08T23:15:47.047667",
+      "duration": "00h 00m 27s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sabarish",
+      "slot": "B",
+      "vehicle_number": "TN05SR0508",
+      "entry_time": "2026-04-09T10:16:13.812874",
+      "exit_time": "2026-04-09T10:17:33.731769",
+      "duration": "00h 01m 19s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "TN02SS260606",
+      "entry_time": "2026-04-14T17:40:27.911974",
+      "exit_time": "2026-04-14T18:09:29.577919",
+      "duration": "00h 29m 01s",
+      "cost_rs": 12
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "TN01SJ1234",
+      "entry_time": "2026-04-14T17:40:51.892330",
+      "exit_time": "2026-04-14T18:13:22.780291",
+      "duration": "00h 32m 30s",
+      "cost_rs": 14
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "THXXX",
+      "entry_time": "2026-04-14T18:16:11.489308",
+      "exit_time": "2026-04-14T18:18:51.960633",
+      "duration": "00h 02m 40s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "VVV",
+      "entry_time": "2026-04-14T18:16:33.554695",
+      "exit_time": "2026-04-14T18:21:48.743153",
+      "duration": "00h 05m 15s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sanjay",
+      "slot": "A",
+      "vehicle_number": "DDDD",
+      "entry_time": "2026-04-14T18:22:59.274017",
+      "exit_time": "2026-04-14T18:23:31.780078",
+      "duration": "00h 00m 32s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "B",
+      "vehicle_number": "RRRRRR",
+      "entry_time": "2026-04-14T18:23:15.854764",
+      "exit_time": "2026-04-14T18:25:39.077701",
+      "duration": "00h 02m 23s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "UGUY",
+      "entry_time": "2026-04-14T18:26:02.404630",
+      "exit_time": "2026-04-14T18:26:29.962894",
+      "duration": "00h 00m 27s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "B",
+      "vehicle_number": "GHJKL",
+      "entry_time": "2026-04-14T18:25:49.834412",
+      "exit_time": "2026-04-14T18:26:46.678286",
+      "duration": "00h 00m 56s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "D",
+      "vehicle_number": "FTYI",
+      "entry_time": "2026-04-14T18:26:18.108285",
+      "exit_time": "2026-04-14T18:28:42.456316",
+      "duration": "00h 02m 24s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "D",
+      "vehicle_number": "WDWD",
+      "entry_time": "2026-04-14T18:31:11.603255",
+      "exit_time": "2026-04-14T21:57:51.201260",
+      "duration": "03h 26m 39s",
+      "cost_rs": 84
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "FRFHUJ",
+      "entry_time": "2026-04-14T18:31:26.726513",
+      "exit_time": "2026-04-14T21:58:07.819515",
+      "duration": "03h 26m 41s",
+      "cost_rs": 84
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "B",
+      "vehicle_number": "FRGTGTG",
+      "entry_time": "2026-04-14T18:31:53.898660",
+      "exit_time": "2026-04-14T21:59:00.640288",
+      "duration": "03h 27m 06s",
+      "cost_rs": 84
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "VRTBT",
+      "entry_time": "2026-04-14T22:01:32.594405",
+      "exit_time": "2026-04-14T22:03:00.564124",
+      "duration": "00h 01m 27s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "D",
+      "vehicle_number": "F4T4",
+      "entry_time": "2026-04-14T22:02:15.766161",
+      "exit_time": "2026-04-14T22:03:22.277163",
+      "duration": "00h 01m 06s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "A",
+      "vehicle_number": "CDSVV",
+      "entry_time": "2026-04-14T22:01:48.544311",
+      "exit_time": "2026-04-14T22:05:36.436025",
+      "duration": "00h 03m 47s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sabarish",
+      "slot": "C",
+      "vehicle_number": "FERG",
+      "entry_time": "2026-04-14T22:02:41.469021",
+      "exit_time": "2026-04-14T22:05:53.017257",
+      "duration": "00h 03m 11s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "C",
+      "vehicle_number": "ABCDEFG",
+      "entry_time": "2026-04-27T20:41:14.727882",
+      "exit_time": "2026-04-27T20:57:29.062867",
+      "duration": "00h 16m 14s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "ABCDEFGHIJ",
+      "entry_time": "2026-04-27T20:41:38.468306",
+      "exit_time": "2026-04-27T20:57:45.266019",
+      "duration": "00h 16m 06s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "A",
+      "vehicle_number": "ABCDEFGHIJK",
+      "entry_time": "2026-04-27T20:43:45.893390",
+      "exit_time": "2026-04-27T21:00:04.435974",
+      "duration": "00h 16m 18s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "ALICE",
+      "entry_time": "2026-04-27T21:00:25.269488",
+      "exit_time": "2026-04-27T21:07:33.545082",
+      "duration": "00h 07m 08s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "VREHGITUG",
+      "entry_time": "2026-04-27T21:00:37.864527",
+      "exit_time": "2026-04-27T21:08:03.042247",
+      "duration": "00h 07m 25s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "C",
+      "vehicle_number": "CREUIHGETG",
+      "entry_time": "2026-04-27T21:04:07.643778",
+      "exit_time": "2026-04-27T21:10:08.972013",
+      "duration": "00h 06m 01s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sabarish",
+      "slot": "D",
+      "vehicle_number": "ETHTH",
+      "entry_time": "2026-04-27T21:05:56.518903",
+      "exit_time": "2026-04-27T21:10:30.531214",
+      "duration": "00h 04m 34s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sabarish",
+      "slot": "A",
+      "vehicle_number": "TN05SR0508",
+      "entry_time": "2026-04-27T21:11:25.336117",
+      "exit_time": "2026-04-27T21:30:06.049392",
+      "duration": "00h 18m 40s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "TN13SM0105",
+      "entry_time": "2026-04-27T21:26:59.333328",
+      "exit_time": "2026-04-27T21:30:21.335441",
+      "duration": "00h 03m 22s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "D",
+      "vehicle_number": "TN06SS2606",
+      "entry_time": "2026-04-27T21:11:02.983632",
+      "exit_time": "2026-04-27T21:31:03.163172",
+      "duration": "00h 20m 00s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sanjay",
+      "slot": "B",
+      "vehicle_number": "TN09SV4567",
+      "entry_time": "2026-04-27T21:30:49.408698",
+      "exit_time": "2026-04-27T22:05:05.356286",
+      "duration": "00h 34m 15s",
+      "cost_rs": 14
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "C",
+      "vehicle_number": "TN08SR4567",
+      "entry_time": "2026-04-27T21:29:40.916932",
+      "exit_time": "2026-04-27T23:50:55.211210",
+      "duration": "02h 21m 14s",
+      "cost_rs": 58
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "TN06SM2606",
+      "entry_time": "2026-04-27T23:34:14.214914",
+      "exit_time": "2026-04-27T23:51:19.151670",
+      "duration": "00h 17m 04s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sanjay",
+      "slot": "D",
+      "vehicle_number": "VERG",
+      "entry_time": "2026-04-27T23:34:46.866024",
+      "exit_time": "2026-04-27T23:51:55.160527",
+      "duration": "00h 17m 08s",
+      "cost_rs": 8
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "TN06SS2345",
+      "entry_time": "2026-04-27T23:33:53.834885",
+      "exit_time": "2026-04-27T23:57:03.661869",
+      "duration": "00h 23m 09s",
+      "cost_rs": 10
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "VRGTH",
+      "entry_time": "2026-04-27T23:57:35.613589",
+      "exit_time": "2026-04-28T00:01:48.946228",
+      "duration": "00h 04m 13s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "C",
+      "vehicle_number": "VYTDTR",
+      "entry_time": "2026-04-28T00:01:27.315710",
+      "exit_time": "2026-04-28T00:02:54.949064",
+      "duration": "00h 01m 27s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "SAWFH",
+      "entry_time": "2026-04-27T23:57:46.283583",
+      "exit_time": "2026-04-28T00:05:00.582948",
+      "duration": "00h 07m 14s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sabarish",
+      "slot": "D",
+      "vehicle_number": "CWRG",
+      "entry_time": "2026-04-27T23:59:44.706275",
+      "exit_time": "2026-04-28T00:07:07.031695",
+      "duration": "00h 07m 22s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sakthi",
+      "slot": "D",
+      "vehicle_number": "WERT",
+      "entry_time": "2026-04-28T00:08:48.571837",
+      "exit_time": "2026-04-28T00:09:20.008581",
+      "duration": "00h 00m 31s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "FREF",
+      "entry_time": "2026-04-28T00:09:04.151872",
+      "exit_time": "2026-04-28T00:11:51.633393",
+      "duration": "00h 02m 47s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "F4TG",
+      "entry_time": "2026-04-28T00:12:08.785645",
+      "exit_time": "2026-04-28T05:59:20.783759",
+      "duration": "05h 47m 11s",
+      "cost_rs": 140
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "VERY",
+      "entry_time": "2026-04-28T00:12:20.398922",
+      "exit_time": "2026-04-28T06:01:37.872685",
+      "duration": "05h 49m 17s",
+      "cost_rs": 140
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "VREG",
+      "entry_time": "2026-04-28T06:01:59.803510",
+      "exit_time": "2026-04-28T06:07:05.912641",
+      "duration": "00h 05m 06s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "VTHB",
+      "entry_time": "2026-04-28T06:02:11.977688",
+      "exit_time": "2026-04-28T06:07:19.732485",
+      "duration": "00h 05m 07s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "D",
+      "vehicle_number": "CWERF",
+      "entry_time": "2026-04-28T06:05:02.588367",
+      "exit_time": "2026-04-28T06:09:21.771753",
+      "duration": "00h 04m 19s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjay",
+      "slot": "C",
+      "vehicle_number": "F5T",
+      "entry_time": "2026-04-28T06:05:19.907059",
+      "exit_time": "2026-04-28T06:09:31.526447",
+      "duration": "00h 04m 11s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "D4RF",
+      "entry_time": "2026-04-28T06:11:40.020683",
+      "exit_time": "2026-04-28T06:12:27.028129",
+      "duration": "00h 00m 47s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "C",
+      "vehicle_number": "RTG",
+      "entry_time": "2026-04-28T06:11:29.765994",
+      "exit_time": "2026-04-28T06:12:50.541202",
+      "duration": "00h 01m 20s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "D",
+      "vehicle_number": "CRG",
+      "entry_time": "2026-04-28T06:12:13.408696",
+      "exit_time": "2026-04-28T06:13:04.277204",
+      "duration": "00h 00m 50s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjay",
+      "slot": "A",
+      "vehicle_number": "R3FTG",
+      "entry_time": "2026-04-28T06:11:55.592915",
+      "exit_time": "2026-04-28T06:13:21.527703",
+      "duration": "00h 01m 25s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "FWER",
+      "entry_time": "2026-04-28T22:35:06.628114",
+      "exit_time": "2026-04-28T22:36:18.880413",
+      "duration": "00h 01m 12s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "FEWT",
+      "entry_time": "2026-04-28T22:35:17.849656",
+      "exit_time": "2026-04-28T22:37:24.019666",
+      "duration": "00h 02m 06s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sabarish",
+      "slot": "C",
+      "vehicle_number": "HUYG",
+      "entry_time": "2026-04-28T22:36:06.908827",
+      "exit_time": "2026-04-28T22:38:06.473120",
+      "duration": "00h 01m 59s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "C",
+      "vehicle_number": "EWF",
+      "entry_time": "2026-04-28T22:38:56.283709",
+      "exit_time": "2026-04-28T22:42:03.487253",
+      "duration": "00h 03m 07s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "CEW",
+      "entry_time": "2026-04-28T22:39:06.928061",
+      "exit_time": "2026-04-28T22:42:51.477604",
+      "duration": "00h 03m 44s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "D",
+      "vehicle_number": "DEWR",
+      "entry_time": "2026-04-28T22:40:08.161826",
+      "exit_time": "2026-04-28T22:48:45.460658",
+      "duration": "00h 08m 37s",
+      "cost_rs": 4
+    },
+    {
+      "username": "sabarish",
+      "slot": "A",
+      "vehicle_number": "F4T",
+      "entry_time": "2026-04-28T22:39:42.440968",
+      "exit_time": "2026-04-28T22:50:40.149434",
+      "duration": "00h 10m 57s",
+      "cost_rs": 6
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "TN06SS2606",
+      "entry_time": "2026-04-28T23:07:15.481560",
+      "exit_time": "2026-04-28T23:09:06.894606",
+      "duration": "00h 01m 51s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "B",
+      "vehicle_number": "TN05SM2345",
+      "entry_time": "2026-04-28T23:07:36.412207",
+      "exit_time": "2026-04-28T23:09:19.498049",
+      "duration": "00h 01m 43s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sabarish",
+      "slot": "C",
+      "vehicle_number": "TN05JCEWF",
+      "entry_time": "2026-04-28T23:08:16.035306",
+      "exit_time": "2026-04-28T23:09:34.632331",
+      "duration": "00h 01m 18s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "D",
+      "vehicle_number": "VERG",
+      "entry_time": "2026-04-28T23:08:48.544635",
+      "exit_time": "2026-04-28T23:10:48.468774",
+      "duration": "00h 01m 59s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "D",
+      "vehicle_number": "TRDURE",
+      "entry_time": "2026-04-28T23:11:05.376787",
+      "exit_time": "2026-04-28T23:11:40.211452",
+      "duration": "00h 00m 34s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "A",
+      "vehicle_number": "VTTY",
+      "entry_time": "2026-04-28T23:11:15.700752",
+      "exit_time": "2026-04-28T23:11:49.902684",
+      "duration": "00h 00m 34s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjay",
+      "slot": "B",
+      "vehicle_number": "TN13SS4546",
+      "entry_time": "2026-04-29T08:56:46.413303",
+      "exit_time": "2026-04-29T08:58:58.535638",
+      "duration": "00h 02m 12s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "TN06SS2606",
+      "entry_time": "2026-04-29T08:56:22.134759",
+      "exit_time": "2026-04-29T08:59:15.751922",
+      "duration": "00h 02m 53s",
+      "cost_rs": 2
+    },
+    {
+      "username": "rohith",
+      "slot": "C",
+      "vehicle_number": "FREGUG",
+      "entry_time": "2026-04-29T08:58:43.890489",
+      "exit_time": "2026-04-29T08:59:42.295567",
+      "duration": "00h 00m 58s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sakthi",
+      "slot": "C",
+      "vehicle_number": "DERG",
+      "entry_time": "2026-04-29T09:01:15.924221",
+      "exit_time": "2026-04-29T09:11:50.012627",
+      "duration": "00h 10m 34s",
+      "cost_rs": 6
+    },
+    {
+      "username": "sanjay",
+      "slot": "B",
+      "vehicle_number": "VHGFDTR",
+      "entry_time": "2026-04-29T09:01:33.642309",
+      "exit_time": "2026-04-29T09:12:13.350209",
+      "duration": "00h 10m 39s",
+      "cost_rs": 6
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "VRH",
+      "entry_time": "2026-04-29T09:12:39.918525",
+      "exit_time": "2026-04-29T09:25:47.875439",
+      "duration": "00h 13m 07s",
+      "cost_rs": 6
+    },
+    {
+      "username": "sakthi",
+      "slot": "B",
+      "vehicle_number": "VREG",
+      "entry_time": "2026-05-15T21:57:50.967343",
+      "exit_time": "2026-05-15T21:58:18.506696",
+      "duration": "00h 00m 27s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjit",
+      "slot": "C",
+      "vehicle_number": "VREG",
+      "entry_time": "2026-05-15T21:58:12.211684",
+      "exit_time": "2026-05-15T21:58:29.297565",
+      "duration": "00h 00m 17s",
+      "cost_rs": 2
+    },
+    {
+      "username": "sanjeevi",
+      "slot": "A",
+      "vehicle_number": "BYUSRG",
+      "entry_time": "2026-04-29T09:12:54.524100",
+      "exit_time": "2026-05-15T21:58:58.204136",
+      "duration": "396h 46m 03s",
+      "cost_rs": 9524
+    },
+    {
+      "username": "sanjay",
+      "slot": "D",
+      "vehicle_number": "TN06TH4567",
+      "entry_time": "2026-04-29T09:24:13.137708",
+      "exit_time": "2026-05-15T21:59:18.566229",
+      "duration": "396h 35m 05s",
+      "cost_rs": 9520
+    },
+    {
+      "username": "sanjit",
+      "slot": "D",
+      "vehicle_number": "TN22DT7699",
+      "entry_time": "2026-05-16T10:06:41.327242",
+      "exit_time": "2026-05-16T11:25:08.855206",
+      "duration": "01h 18m 27s",
+      "cost_rs": 32
+    },
+    {
+      "username": "sakthi",
+      "slot": "A",
+      "vehicle_number": "TN39CN1456",
+      "entry_time": "2026-05-16T10:06:58.346491",
+      "exit_time": "2026-05-16T11:28:04.902948",
+      "duration": "01h 21m 06s",
+      "cost_rs": 34
+    }
+  ]
+}

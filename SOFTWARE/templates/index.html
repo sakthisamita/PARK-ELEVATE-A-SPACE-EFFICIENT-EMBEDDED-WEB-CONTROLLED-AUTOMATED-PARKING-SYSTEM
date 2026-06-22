@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PARK ELEVATE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════ CSS Variables ═══════════════════════ */
+:root {
+  /* Core Backgrounds - Lightened */
+  --bg:         #f0f2f5;    /* Light grey-blue wash */
+  --surface:    #ffffff;    /* Pure white for the main container */
+  --card:       #f8fafc;    /* Very light grey for sub-elements */
+  --border:     #d1d9e6;    /* Subtle borders for structure */
+
+  /* Primary Accents - Slightly darkened for visibility on white */
+  --accent:     #d98c00;    /* Deepened orange/gold */
+  --accent2:    #00a383;    /* Deepened teal/mint */
+  --danger:     #e63946;    /* Standard vibrant red */
+  
+  /* Text and UI elements */
+  --muted:      #718096;    /* Medium grey for secondary info */
+  --text:       #1a202c;    /* Deep charcoal for primary readability */
+  --text-dim:   #4a5568;    /* Muted grey for descriptions */
+  
+  /* Fonts - Kept as per your original design */
+  --font-head:  'Syne', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+  --radius:     12px;
+
+  /* Refined Glows - Lower opacity for lighter backgrounds */
+  --glow-y:     0 4px 20px rgba(217, 140, 0, 0.15);
+  --glow-g:     0 4px 20px rgba(0, 163, 131, 0.15);
+}
+
+/* Suggested CSS Addition for your containers */
+.card, .container, .input-field {
+  border: 2px solid var(--border); /* Increased thickness from 1px to 2px */
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong); /* Highlights the border on hover */
+}
+
+/* ═══════════════════════ Reset ═══════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-head);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════ Background Grid ═══════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245,166,35,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,166,35,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════ Header ═══════════════════════ */
+header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.logo-icon {
+  width: 40px; height: 40px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #000;
+  font-size: 1.2rem;
+}
+.logo span { color: var(--accent); }
+.esp32-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  background: var(--surface);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.dot.online { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); animation: pulse 2s infinite; }
+.dot.offline { background: var(--danger); }
+
+@keyframes pulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+}
+
+/* ═══════════════════════ Main Layout ═══════════════════════ */
+main {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 30px;
+  padding: 30px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ═══════════════════════ Carousel Visual ═══════════════════════ */
+.carousel-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin-bottom: -12px;
+}
+.carousel-visual {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.carousel-ring {
+  position: relative;
+  width: 260px; height: 260px;
+}
+.carousel-center {
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+.slot-node {
+  position: absolute;
+  width: 72px; height: 72px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: default;
+  transition: all 0.4s ease;
+}
+/* Position nodes at 90° intervals around a 260px circle, r≈90px */
+.slot-node[data-pos="0"] { top: 0;   left: 50%; transform: translateX(-50%); }  /* top (entry) */
+.slot-node[data-pos="1"] { right: 0; top: 50%;  transform: translateY(-50%); }  /* right */
+.slot-node[data-pos="2"] { bottom:0; left: 50%; transform: translateX(-50%); }  /* bottom */
+.slot-node[data-pos="3"] { left: 0;  top: 50%;  transform: translateY(-50%); }  /* left */
+
+.slot-node.empty    { border-color: var(--border);  color: var(--text-dim); }
+.slot-node.occupied { border-color: var(--danger);   color: var(--danger);   background: rgba(255,77,109,0.08); box-shadow: 0 0 20px rgba(255,77,109,0.15); }
+.slot-node.active   { border-color: var(--accent2);  color: var(--accent2);  background: rgba(0,212,170,0.08);  box-shadow: 0 0 20px rgba(0,212,170,0.2); }
+.slot-node.my-slot  { border-color: var(--accent);   color: var(--accent);   background: rgba(245,166,35,0.08); box-shadow: var(--glow-y); }
+
+.slot-status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+.empty .slot-status-dot    { background: var(--muted); }
+.occupied .slot-status-dot { background: var(--danger); }
+.active .slot-status-dot   { background: var(--accent2); animation: pulse 1.5s infinite; }
+.my-slot .slot-status-dot  { background: var(--accent);  animation: pulse 1.5s infinite; }
+
+.entry-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--accent2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.entry-arrow::before, .entry-arrow::after {
+  content: '';
+  display: block;
+  width: 30px; height: 1px;
+  background: var(--accent2);
+}
+
+/* ═══════════════════════ Stats Row ═══════════════════════ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+.stat-card.full .stat-value { color: var(--danger); }
+.stat-card.avail .stat-value { color: var(--accent2); }
+
+/* ═══════════════════════ Activity Log ═══════════════════════ */
+.log-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.log-title {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin-bottom: 14px;
+}
+.log-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.log-item {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  padding: 6px 10px;
+  background: var(--surface);
+  border-radius: 6px;
+  border-left: 3px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+.log-item.entry  { border-left-color: var(--accent2); }
+.log-item.exit   { border-left-color: var(--accent);  }
+.log-item.error  { border-left-color: var(--danger);  }
+
+/* ═══════════════════════ Right Panel (Forms) ═══════════════════════ */
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ═══════════════════════ Full Banner ═══════════════════════ */
+#full-banner {
+  display: none;
+  background: rgba(255,77,109,0.08);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+#full-banner.show { display: block; animation: fadeIn 0.4s ease; }
+.full-icon { font-size: 2.5rem; margin-bottom: 8px; }
+.full-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--danger);
+  margin-bottom: 4px;
+}
+.full-sub { font-size: 0.8rem; color: var(--text-dim); }
+
+/* ═══════════════════════ Tab Switcher ═══════════════════════ */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.tab-btn {
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  letter-spacing: 1px;
+}
+.tab-btn.active {
+  background: var(--card);
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* ═══════════════════════ Form Card ═══════════════════════ */
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.3s ease;
+}
+.form-card.show { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-row { display: flex; flex-direction: column; gap: 6px; }
+label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input:focus { border-color: var(--accent); }
+
+.btn {
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-entry {
+  background: var(--accent2);
+  color: #000;
+}
+.btn-entry:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: var(--glow-g); }
+.btn-exit {
+  background: var(--accent);
+  color: #000;
+}
+.btn-exit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: var(--glow-y); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ═══════════════════════ Receipt Card ═══════════════════════ */
+.receipt-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  animation: fadeIn 0.4s ease;
+}
+.receipt-card.show { display: flex; }
+.receipt-header {
+  text-align: center;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: 14px;
+}
+.receipt-title {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+.receipt-slot {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 0.8rem;
+}
+.receipt-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+.receipt-key { color: var(--text-dim); font-family: var(--font-mono); }
+.receipt-val { font-weight: 600; font-family: var(--font-mono); }
+.receipt-total {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.receipt-total .receipt-key { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.receipt-total .receipt-val { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+
+/* ═══════════════════════ Spinner / Toast ═══════════════════════ */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(0,0,0,0.3);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#toast {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  max-width: 320px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+#toast.success { border-color: var(--accent2); }
+#toast.error   { border-color: var(--danger);  }
+.toast-icon { font-size: 1.3rem; }
+
+/* ═══════════════════════ Responsive ═══════════════════════ */
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; padding: 20px; }
+  header { padding: 16px 20px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .carousel-ring { width: 220px; height: 220px; }
+  .slot-node { width: 60px; height: 60px; font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ HEADER ════════════════════════ -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🅿</div>
+    PARK<span>ELEVATE</span>
+  </div>
+  <div class="esp32-badge">
+    <div class="dot" id="esp32-dot"></div>
+    <span id="esp32-status">ESP32 — Checking…</span>
+  </div>
+</header>
+
+<!-- ════════════════════════ MAIN ════════════════════════ -->
+<main>
+
+  <!-- LEFT: Carousel Visual + Stats + Log -->
+  <div class="carousel-panel">
+
+    <p class="section-label">Live Carousel View</p>
+
+    <div class="carousel-visual">
+      <div class="entry-arrow">← ENTRY / EXIT →</div>
+      <div class="carousel-ring" id="carousel-ring">
+        <div class="carousel-center">⚙</div>
+        <!-- Slot nodes injected by JS -->
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total">4</div>
+        <div class="stat-label">Total Slots</div>
+      </div>
+      <div class="stat-card avail">
+        <div class="stat-value" id="stat-avail">—</div>
+        <div class="stat-label">Available</div>
+      </div>
+      <div class="stat-card full">
+        <div class="stat-value" id="stat-occ">—</div>
+        <div class="stat-label">Occupied</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="font-size:1.1rem;color:var(--accent)" id="stat-pos">—</div>
+        <div class="stat-label">At Entry</div>
+      </div>
+    </div>
+
+    <div class="log-panel">
+      <div class="log-title">Activity Log</div>
+      <ul class="log-list" id="log-list">
+        <li class="log-item"><span>System started</span><span id="start-time"></span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Forms -->
+  <div class="form-panel">
+
+    <!-- Parking Full Banner -->
+    <div id="full-banner">
+      <div class="full-icon">🚫</div>
+      <div class="full-title">PARKING FULL</div>
+      <div class="full-sub">All 4 slots are currently occupied.<br/>Please try again later.</div>
+    </div>
+
+    <!-- Tab Switcher -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('entry')">🚗 Entry</button>
+      <button class="tab-btn" onclick="switchTab('exit')">🏁 Exit</button>
+    </div>
+
+    <!-- ENTRY FORM -->
+    <div class="form-card show" id="form-entry">
+      <div class="form-row">
+        <label>Username</label>
+        <input id="entry-user" type="text" placeholder="e.g. alice" autocomplete="off"/>
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input id="entry-pass" type="password" placeholder="••••••••"/>
+      </div>
+      <div class="form-row">
+        <label>Vehicle Number</label>
+        <input id="entry-vehicle" type="text" placeholder="e.g. TN09AB1234" maxlength="15"/>
+      </div>
+      <button class="btn btn-entry" id="btn-entry" onclick="doEntry()">
+        ⬇ Park My Vehicle
+      </button>
+    </div>
+
+    <!-- EXIT FORM -->
+    <div class="form-card" id="form-exit">
+      <div class="form-row">
+        <label>Username</label>
+        <input id="exit-user" type="text" placeholder="e.g. alice" autocomplete="off"/>
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input id="exit-pass" type="password" placeholder="••••••••"/>
+      </div>
+      <button class="btn btn-exit" id="btn-exit" onclick="doExit()">
+        ⬆ Retrieve My Vehicle
+      </button>
+    </div>
+
+    <!-- RECEIPT (shown after successful exit) -->
+    <div class="receipt-card" id="receipt-card">
+      <div class="receipt-header">
+        <div class="receipt-title">Parking Receipt</div>
+        <div class="receipt-slot" id="r-slot">—</div>
+      </div>
+      <div class="receipt-row">
+        <span class="receipt-key">Vehicle No.</span>
+        <span class="receipt-val" id="r-vehicle">—</span>
+      </div>
+      <div class="receipt-row">
+        <span class="receipt-key">Entry Time</span>
+        <span class="receipt-val" id="r-entry">—</span>
+      </div>
+      <div class="receipt-row">
+        <span class="receipt-key">Exit Time</span>
+        <span class="receipt-val" id="r-exit">—</span>
+      </div>
+      <div class="receipt-row">
+        <span class="receipt-key">Duration</span>
+        <span class="receipt-val" id="r-duration">—</span>
+      </div>
+      <div class="receipt-total">
+        <span class="receipt-key">TOTAL DUE</span>
+        <span class="receipt-val" id="r-cost">Rs. —</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Toast notification -->
+<div id="toast">
+  <span class="toast-icon" id="toast-icon"></span>
+  <span id="toast-msg"></span>
+</div>
+
+<script>
+/* ════════════════════════════════════════════
+   CarouselPark — Frontend Logic
+   ════════════════════════════════════════════ */
+
+const SLOT_LABELS = ["A", "B", "C", "D"];
+let currentState  = {};    // last fetched status
+let activeTab     = "entry";
+let mySlot        = null;  // slot assigned in this browser session
+
+/* ── Bootstrap ──────────────────────────────── */
+document.getElementById("start-time").textContent = new Date().toLocaleTimeString();
+buildCarouselNodes();
+fetchStatus();
+setInterval(fetchStatus, 5000);
+checkESP32();
+setInterval(checkESP32, 10000);
+
+/* ── Build carousel SVG nodes ─────────────────── */
+function buildCarouselNodes() {
+  const ring = document.getElementById("carousel-ring");
+  SLOT_LABELS.forEach((label, i) => {
+    const node = document.createElement("div");
+    node.className = "slot-node empty";
+    node.id = `slot-${label}`;
+    node.dataset.pos = i;
+    node.innerHTML = `<strong>${label}</strong><div class="slot-status-dot"></div>`;
+    ring.appendChild(node);
+  });
+}
+
+/* ── Fetch system status ──────────────────────── */
+async function fetchStatus() {
+  try {
+    const res  = await fetch("/api/status");
+    const data = await res.json();
+    currentState = data;
+    updateCarouselUI(data);
+  } catch(e) {
+    console.warn("Status fetch failed:", e);
+  }
+}
+
+function updateCarouselUI(data) {
+  // Slot nodes
+  Object.entries(data.slots).forEach(([slotId, info]) => {
+    const el = document.getElementById(`slot-${slotId}`);
+    if (!el) return;
+    el.className = "slot-node";
+    if (slotId === mySlot) {
+      el.classList.add("my-slot");
+    } else if (info.status === "occupied") {
+      el.classList.add("occupied");
+    } else {
+      el.classList.add("empty");
+    }
+    // Rotate node position based on carousel_position
+    // Logical position of slot in carousel view:
+    const slotIndex = SLOT_LABELS.indexOf(slotId);
+    const visualPos = (slotIndex - data.carousel_position + 4) % 4;
+    el.dataset.pos = visualPos;
+  });
+
+  // Stats
+  document.getElementById("stat-avail").textContent = data.available;
+  document.getElementById("stat-occ").textContent   = data.occupied;
+
+  // Which slot is at entry
+  const atEntry = SLOT_LABELS[data.carousel_position];
+  document.getElementById("stat-pos").textContent = `Slot ${atEntry}`;
+
+  // Full banner
+  const banner = document.getElementById("full-banner");
+  if (data.parking_full && activeTab === "entry") {
+    banner.classList.add("show");
+    document.getElementById("btn-entry").disabled = true;
+  } else {
+    banner.classList.remove("show");
+    document.getElementById("btn-entry").disabled = false;
+  }
+}
+
+/* ── ESP32 health check ───────────────────────── */
+async function checkESP32() {
+  const dot    = document.getElementById("esp32-dot");
+  const status = document.getElementById("esp32-status");
+  try {
+    const res  = await fetch("/api/esp32/health");
+    const data = await res.json();
+    if (data.online) {
+      dot.className    = "dot online";
+      status.textContent = `ESP32 — Online  |  Pos: ${data.esp32?.position ?? "?"}`;
+    } else throw new Error();
+  } catch {
+    dot.className    = "dot offline";
+    status.textContent = "ESP32 — Offline";
+  }
+}
+
+/* ── Tab switching ───────────────────────────── */
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll(".tab-btn").forEach((b, i) => {
+    b.classList.toggle("active", (i === 0 && tab === "entry") || (i === 1 && tab === "exit"));
+  });
+  document.getElementById("form-entry").classList.toggle("show", tab === "entry");
+  document.getElementById("form-exit").classList.toggle("show",  tab === "exit");
+  if (tab === "entry") document.getElementById("receipt-card").classList.remove("show");
+  updateCarouselUI(currentState);
+}
+
+/* ── Entry Flow ──────────────────────────────── */
+async function doEntry() {
+  const username  = document.getElementById("entry-user").value.trim();
+  const password  = document.getElementById("entry-pass").value.trim();
+  const vehicle   = document.getElementById("entry-vehicle").value.trim();
+
+  if (!username || !password || !vehicle) {
+    showToast("error", "⚠", "Please fill in all fields.");
+    return;
+  }
+
+  const btn = document.getElementById("btn-entry");
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> Rotating carousel…`;
+
+  try {
+    const res  = await fetch("/api/login", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ username, password, vehicle_number: vehicle })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      mySlot = data.slot;
+      addLog("entry", `${username} → Slot ${data.slot} (${vehicle})`);
+      showToast("success", "✅", data.message);
+      btn.innerHTML = `⬇ Park My Vehicle`;
+      document.getElementById("entry-user").value    = "";
+      document.getElementById("entry-pass").value    = "";
+      document.getElementById("entry-vehicle").value = "";
+      await fetchStatus();
+    } else {
+      showToast("error", "❌", data.error);
+      addLog("error", `Entry failed: ${data.error}`);
+      btn.innerHTML = `⬇ Park My Vehicle`;
+    }
+  } catch(e) {
+    showToast("error", "❌", "Server error. Check Flask connection.");
+    btn.innerHTML = `⬇ Park My Vehicle`;
+  }
+  btn.disabled = false;
+}
+
+/* ── Exit Flow ───────────────────────────────── */
+async function doExit() {
+  const username = document.getElementById("exit-user").value.trim();
+  const password = document.getElementById("exit-pass").value.trim();
+
+  if (!username || !password) {
+    showToast("error", "⚠", "Please enter username and password.");
+    return;
+  }
+
+  const btn = document.getElementById("btn-exit");
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> Retrieving vehicle…`;
+
+  try {
+    const res  = await fetch("/api/exit", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      // Show receipt
+      document.getElementById("r-slot").textContent     = `Slot ${data.slot}`;
+      document.getElementById("r-vehicle").textContent  = data.vehicle_number;
+      document.getElementById("r-entry").textContent    = fmtTime(data.entry_time);
+      document.getElementById("r-exit").textContent     = fmtTime(data.exit_time);
+      document.getElementById("r-duration").textContent = data.duration;
+      document.getElementById("r-cost").textContent     = `Rs. ${data.cost_rs}`;
+      document.getElementById("receipt-card").classList.add("show");
+
+      addLog("exit", `${username} exited Slot ${data.slot} — Rs.${data.cost_rs}`);
+      showToast("success", "🏁", data.message);
+
+      if (mySlot === data.slot) mySlot = null;
+      document.getElementById("exit-user").value = "";
+      document.getElementById("exit-pass").value = "";
+      await fetchStatus();
+    } else {
+      showToast("error", "❌", data.error);
+      addLog("error", `Exit failed: ${data.error}`);
+    }
+  } catch(e) {
+    showToast("error", "❌", "Server error. Check Flask connection.");
+  }
+  btn.disabled  = false;
+  btn.innerHTML = `⬆ Retrieve My Vehicle`;
+}
+
+/* ── Helpers ─────────────────────────────────── */
+function fmtTime(iso) {
+  if (!iso) return "—";
+  return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+}
+
+function addLog(type, msg) {
+  const list = document.getElementById("log-list");
+  const li   = document.createElement("li");
+  li.className = `log-item ${type}`;
+  li.innerHTML = `<span>${msg}</span><span>${new Date().toLocaleTimeString()}</span>`;
+  list.prepend(li);
+  // Keep only last 20 entries
+  while (list.children.length > 20) list.removeChild(list.lastChild);
+}
+
+let toastTimer;
+function showToast(type, icon, msg) {
+  const t  = document.getElementById("toast");
+  document.getElementById("toast-icon").textContent = icon;
+  document.getElementById("toast-msg").textContent  = msg;
+  t.className = `show ${type}`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.className = ""; }, 4000);
+}
+</script>
+</body>
+</html>
